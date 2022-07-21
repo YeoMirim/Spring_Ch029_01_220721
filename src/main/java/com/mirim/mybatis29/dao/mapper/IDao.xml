@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">   <!-- mapper 선언 -->
+	
+<mapper namespace="com.mirim.mybatis29.dao.IDao">  <!-- mapper의 sql과 클래스 메소드를 연동시켜서 mapping 시킴 -->
+
+	<select id="listDao" resultType="com.mirim.mybatis29.dto.ContentDto">   <!-- resultType은 반환타입/ 경로(패키지명)작성 -->
+		SELECT *FROM simple_board ORDER BY mid DESC
+	</select>
+	
+	<insert id="writeDao">
+		INSERT INTO simple_board (mid, mwriter, mcontent) VALUES (simple_board_seq.nextval, #{param1 }, #{param2 })
+	<!-- ?자리의 param1, param2 대신 mwriter, mcontent를 써도 됨 -->
+	</insert>
+	
+	<delete id="deleteDao">
+		DELETE FROM simple_board WHERE mid= #{param1 }
+	<!-- ?자리의 param1 대신 mid를 써도 됨 -->	
+	</delete>
+
+</mapper>	
