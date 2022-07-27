@@ -21,7 +21,7 @@ public class HomeController {
 //	ContentDao dao;
 	
 	@Autowired
-	private SqlSession sqlSession;	// 바로 불러와서 쓸 수 있게끔 주입이 됨
+	private SqlSession sqlSession;	// bean을 바로 불러와서 쓸 수 있게끔 주입이 됨
 	
 //
 //	@Autowired
@@ -39,7 +39,7 @@ public class HomeController {
 	@RequestMapping (value = "write")
 	public String write(HttpServletRequest request) {
 		
-		String mwriter = request.getParameter("mwriter");
+		String mwriter = request.getParameter("mwriter");   // 입력했던 값을 추출해서
 		String mcontent = request.getParameter("mcontent");
 	
 		IDao idao = sqlSession.getMapper(IDao.class);

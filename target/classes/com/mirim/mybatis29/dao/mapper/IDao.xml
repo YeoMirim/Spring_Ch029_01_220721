@@ -12,7 +12,7 @@
 	
 	<insert id="writeDao">
 		INSERT INTO simple_board (mid, mwriter, mcontent) VALUES (simple_board_seq.nextval, #{param1 }, #{param2 })
-	<!-- ?자리의 param1, param2 대신 mwriter, mcontent를 써도 됨 -->
+	<!-- PreparedStatement에서 사용하는 ?자리의 param1, param2 대신 mwriter, mcontent를 써도 됨 -->
 	</insert>
 	
 	<delete id="deleteDao">
